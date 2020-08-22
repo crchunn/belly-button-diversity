@@ -4,34 +4,39 @@ function unpack(rows, index) {
     return row[index];
   });
 }
-function parseBugs() {
-  d3.json("data/samples.json").then((incomingData) => {
-    var metadata = unpack()
-    buildTable(id, ethnicity, gender, age, location, bbtype, wfreq);
-    console.log(incomingData);
-
-    var filteredGerms = incomingData.filter(filterGerms);
-    // function filterGerms(germ) {
-    // return germ.id;
-    var bellyId = filteredGerms.map(germs => germs.id);
-
-    var samples = filteredGerms.map(germs => )
-
-
-    var trace = {
-      x: bellyId,
-      y: samples,
-      type: "bar"
-    };
-    var data = [trace];
-
-    var layout = {
-      xaxis: { title: "OTU ID" },
-      yaxis: {title: "Number of Germs"}
-    };
-
-    Plotly.newPlot("bar-plot", data, layout);
+d3.json("data/samples.json").then((incomingData) => {
+    // var metadata = unpack(incomingData.metadata, names)
+    // buildTable(id, ethnicity, gender, age, location, bbtype, wfreq);
+    var metadata = incomingData.metadata
+    console.log(metadata);
   });
+// function parseBugs() {
+  
+
+
+
+/*  var filteredGerms = incomingData.filter(filterGerms);
+ // function filterGerms(germ) {
+ // return germ.id;
+ var bellyId = filteredGerms.map(germs => germs.id);
+
+ // var samples = filteredGerms.map(germs => )
+
+
+ var trace = {
+   x: bellyId,
+   y: samples,
+   type: "bar"
+ };
+ var data = [trace];
+
+ var layout = {
+   xaxis: { title: "OTU ID" },
+   yaxis: {title: "Number of Germs"}
+ };
+
+ Plotly.newPlot("bar-plot", data, layout);
+});
 }
 // Incoming data is internally referred to as incomingData
 
@@ -42,10 +47,4 @@ function parseBugs() {
 
 
 
-// check check check
-
-
-
-
-
-
+// check check check */
