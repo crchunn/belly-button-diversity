@@ -28,12 +28,7 @@ d3.json("data/samples.json").then((incomingData) => {
 
 
   var trace = {
-    // x: data.map(row => row.greekSearchResults),
-    // y: data.map(row => row.greekName),
-    // text: data.map(row => row.greekName),
-    // name: "Greek",
-    // type: "bar",
-    // orientation: "h"
+    
     x: samples.sample_values,
     y: samples.otu_ids,
     text: samples.otu_labels,
