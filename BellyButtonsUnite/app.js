@@ -5,7 +5,7 @@ function unpack(rows, index) {
   });
 }
 function charts(names) {
-  d3.json("data/samples.json").then((incomingData) => {
+  d3.json("BellyButtonsUnite/data/samples.json").then((incomingData) => {
     // var metadata = unpack(incomingData.metadata, names)
     // buildTable(id, ethnicity, gender, age, location, bbtype, wfreq);
     var metadata = incomingData.metadata
@@ -94,7 +94,7 @@ function charts(names) {
 // charts(940)
 function parseBugs() {
   var dropDown = d3.select("#selDataset")
-  d3.json("data/samples.json").then((incomingData) => {
+  d3.json("/BellyButtonsUnite/data/samples.json").then((incomingData) => {
     // var metadata = unpack(incomingData.metadata, names)
     // buildTable(id, ethnicity, gender, age, location, bbtype, wfreq);
     var names = incomingData.names
