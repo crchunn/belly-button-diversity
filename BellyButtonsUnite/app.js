@@ -29,15 +29,17 @@ function charts(names) {
     var data = [{
       type: 'bar',
       x: samples.sample_values.slice(0, 10).reverse(),
-      y: samples.otu_ids,
-      text: samples.otu_labels,
+      y: samples.otu_ids.slice(0,10).map(o => `OTU ${o}`).reverse(),
+      text: samples.otu_labels.slice(0,10).reverse(),
       orientation: 'h',
       // color: 
     }];
+    // var data = [trace];
     var layout = {
-      xaxis:{
-          autorange:'reversed'
-      },
+      title: 'Top 10'
+      // xaxis:{
+          // autorange:'reversed'
+      // },
       // yaxis:{
         // side:'left'
       // }
@@ -78,7 +80,7 @@ function charts(names) {
     var data = [trace2];
 
     var layout2 = {
-      title: 'Marker Size',
+      title: 'OTU ID',
       showlegend: false,
     };
 
