@@ -56,7 +56,10 @@ d3.json("data/samples.json").then((incomingData) => {
     text: samples.otu_labels,
     mode: "markers",
     type: "bubble",
-
+    // mode: 'markers',
+    // marker=dict(
+        // color=['rgb(44, 160, 101)'],
+        // size=[60],)
   };
   var data2 = [trace2];
 
