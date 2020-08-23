@@ -17,6 +17,11 @@ function charts(names) {
 
     console.log(filteredGerms);
 
+    var bellyWash = metadata.filter((filterGerms) =>
+      filterGerms.wfreq == names);
+    bellyWash = bellyWash[0]
+    console.log(bellyWash);
+
     var samples = incomingData.samples.filter((filterGerms) =>
       filterGerms.id == names);
     samples = samples[0]
@@ -29,8 +34,8 @@ function charts(names) {
     var data = [{
       type: 'bar',
       x: samples.sample_values.slice(0, 10).reverse(),
-      y: samples.otu_ids.slice(0,10).map(o => `OTU ${o}`).reverse(),
-      text: samples.otu_labels.slice(0,10).reverse(),
+      y: samples.otu_ids.slice(0, 10).map(o => `OTU ${o}`).reverse(),
+      text: samples.otu_labels.slice(0, 10).reverse(),
       orientation: 'h',
       // color: 
     }];
@@ -38,33 +43,41 @@ function charts(names) {
     var layout = {
       title: 'Top 10'
       // xaxis:{
-          // autorange:'reversed'
+      // autorange:'reversed'
       // },
       // yaxis:{
-        // side:'left'
+      // side:'left'
       // }
-  }
+    }
 
 
     Plotly.newPlot('bar', data, layout)
 
-    /* var trace = {
-
-      x: samples.sample_values.slice(0, 10).reverse(),
-      y: samples.otu_ids,
-      text: samples.otu_labels,
-      name: "germy",
-      type: "bar",
-      orientation: "h"
-    };
-    var data = [trace];
-
-    var layout = {
-      xaxis: { title: "OTU ID" },
-      yaxis: { title: "Number of Germs" }
-    };
-
-    Plotly.newPlot("bar", data, layout); */
+    /* var data = [
+      {
+        domain: { x: [0, 1], y: [0, 1] },
+        value: 450,
+        title: { text: "Speed" },
+        type: "indicator",
+        mode: "gauge+number+delta",
+        delta: { reference: 380 },
+        gauge: {
+          axis: { range: [null, 500] },
+          steps: [
+            { range: [0, 250], color: "lightgray" },
+            { range: [250, 400], color: "gray" }
+          ],
+          threshold: {
+            line: { color: "red", width: 4 },
+            thickness: 0.75,
+            value: 490
+          }
+        }
+      }
+    ];
+    
+    var layout = { width: 600, height: 450, margin: { t: 0, b: 0 } };
+    Plotly.newPlot('myDiv', data, layout); */
 
     var trace2 = {
       x: samples.otu_ids,
